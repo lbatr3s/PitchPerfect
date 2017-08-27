@@ -11,6 +11,10 @@ import AVFoundation
 
 class RecordSoundsViewController: UIViewController {
     
+    struct Alerts {
+        static let recordingFailedMessage = "Something went wrong with your recording."
+    }
+    
     enum RecordState {
         case recording
         case notRecording
@@ -104,8 +108,20 @@ extension RecordSoundsViewController: AVAudioRecorderDelegate {
         if flag {
             performSegue(withIdentifier: stopRecordingSegueIdentifier, sender: audioRecorder.url)
         } else {
-            print("Recording was not successful")
+            showAlert(withMessage: Alerts.recordingFailedMessage)
         }
+    }
+    
+    
+    // MARK: Private methods
+    
+    private func showAlert(withMessage message: String) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Ok", style: .cancel)
+        
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true)
     }
 }
 

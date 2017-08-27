@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,40 +22,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFc-Ei-7hc">
-                                <rect key="frame" x="110" y="256" width="155" height="155"/>
-                                <state key="normal" backgroundImage="Record"/>
-                                <connections>
-                                    <action selector="didTapRecordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qH3-wi-ZXc"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqq-jL-tZJ">
-                                <rect key="frame" x="110" y="419" width="155" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="16i-wI-9NP">
-                                <rect key="frame" x="155" y="448" width="64" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="RCs-o7-xOL"/>
-                                    <constraint firstAttribute="width" constant="64" id="hZZ-ho-K0w"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="Stop"/>
-                                <connections>
-                                    <action selector="didTapStopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GMz-Do-8f3"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="t7r-Uq-a5I">
+                                <rect key="frame" x="16" y="246" width="343" height="175.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFc-Ei-7hc">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="155"/>
+                                        <state key="normal" image="Record"/>
+                                        <connections>
+                                            <action selector="didTapRecordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qH3-wi-ZXc"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqq-jL-tZJ">
+                                        <rect key="frame" x="0.0" y="155" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="4cI-Y1-uX7">
+                                <rect key="frame" x="155.5" y="431.5" width="64" height="235.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="16i-wI-9NP">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="64" id="4jb-tV-2i1"/>
+                                            <constraint firstAttribute="height" constant="64" id="POf-dW-ncr"/>
+                                        </constraints>
+                                        <state key="normal" image="Stop"/>
+                                        <connections>
+                                            <action selector="didTapStopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GMz-Do-8f3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Rqq-jL-tZJ" firstAttribute="leading" secondItem="QFc-Ei-7hc" secondAttribute="leading" id="Guy-Zs-Pez"/>
-                            <constraint firstItem="Rqq-jL-tZJ" firstAttribute="trailing" secondItem="QFc-Ei-7hc" secondAttribute="trailing" id="Hhh-1A-rdr"/>
-                            <constraint firstItem="16i-wI-9NP" firstAttribute="centerX" secondItem="QFc-Ei-7hc" secondAttribute="centerX" id="P2e-rw-T2u"/>
-                            <constraint firstItem="16i-wI-9NP" firstAttribute="top" secondItem="Rqq-jL-tZJ" secondAttribute="bottom" constant="8" id="T0y-QX-vy4"/>
-                            <constraint firstItem="Rqq-jL-tZJ" firstAttribute="top" secondItem="QFc-Ei-7hc" secondAttribute="bottom" constant="8" id="ZD1-8P-5ul"/>
-                            <constraint firstItem="QFc-Ei-7hc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ey9-KN-pUw"/>
-                            <constraint firstItem="QFc-Ei-7hc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jUS-X0-DmG"/>
+                            <constraint firstItem="4cI-Y1-uX7" firstAttribute="top" secondItem="t7r-Uq-a5I" secondAttribute="bottom" constant="10" id="1QM-c8-ryG"/>
+                            <constraint firstItem="4cI-Y1-uX7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Rs-dI-dYR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="t7r-Uq-a5I" secondAttribute="trailing" id="FPb-sb-KiA"/>
+                            <constraint firstItem="t7r-Uq-a5I" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="SLu-cL-lt7"/>
+                            <constraint firstItem="t7r-Uq-a5I" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fbL-UB-xyA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4cI-Y1-uX7" secondAttribute="bottom" id="pnk-CD-OJQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2ef-w3-e6g"/>
